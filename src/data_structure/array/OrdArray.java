@@ -19,6 +19,10 @@ public class OrdArray {
         arr = new int[size];
     }
 
+    /**
+     * 普通插入
+     * 时间复杂度O(N)
+     */
     public boolean insert(int num) {
         int location = 0;
         for (; location < lenght; location++) {
@@ -39,7 +43,52 @@ public class OrdArray {
     }
 
     /**
+     * 使用二分查找法插入
+     * 还有问题
+     */
+    public boolean insertNew(int num) {
+        if (lenght == 0) {
+            arr[0] = num;
+            lenght++;
+            return true;
+        }
+        int max = lenght - 1;
+        int min = 0;
+        int curLoc = 0;
+        while (true) {
+            curLoc = (max + min) / 2;
+            if (arr[curLoc] == num) {
+                return false;
+            } else if (max <= 0) {
+                curLoc = 0;
+                break;
+            } else if (min > max) {//直接放在最后一位
+                curLoc = lenght;
+                arr[curLoc] = num;
+                return true;
+            } else if (max - min == curLoc) {
+                //找到了这个数应该在的位置
+                break;
+            } else {
+                if (arr[curLoc] > num) {
+                    max = curLoc - 1;
+                } else {
+                    min = curLoc + 1;
+                }
+            }
+        }
+        //后面的数向后移动
+        for (int i = lenght; i > curLoc; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[curLoc] = num;
+        lenght++;
+        return true;
+    }
+
+    /**
      * 使用二分查找法
+     * 时间复杂度 O(logN)
      */
     public int select(int num) {
         int max = lenght - 1;
@@ -63,6 +112,7 @@ public class OrdArray {
 
     /**
      * 顺序查找
+     * 时间复杂度O(N)
      */
     public int indexOf(int num) {
         for (int i = 0; i < lenght; i++) {

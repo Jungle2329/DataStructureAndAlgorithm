@@ -3,6 +3,7 @@ package data_structure.array;
 import java.util.Arrays;
 
 import algorithm.sort.BubbleSort;
+import algorithm.sort.SelectSort;
 
 /**
  * Created by Jungle on 2019/3/15 0015.
@@ -34,5 +35,9 @@ public class BubArray {
         arr = b.bubbleSort(arr);
     }
 
+    public void selectSort() {
+        SelectSort b = new SelectSort();
+        arr = b.selectSort(arr);
+    }
 
 }

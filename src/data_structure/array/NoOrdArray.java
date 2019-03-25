@@ -3,6 +3,7 @@ package data_structure.array;
 import java.util.Arrays;
 
 import algorithm.sort.BubbleSort;
+import algorithm.sort.InsertSort;
 import algorithm.sort.SelectSort;
 
 /**
@@ -10,14 +11,14 @@ import algorithm.sort.SelectSort;
  *
  * @author JungleZhang
  * @version 1.0.0
- * @Description
+ * @Description 无序数组
  */
 
-public class BubArray {
+public class NoOrdArray {
     private long[] arr;
     private int length = 0;
 
-    public BubArray(int size) {
+    public NoOrdArray(int size) {
         arr = new long[size];
     }
 
@@ -38,6 +39,11 @@ public class BubArray {
     public void selectSort() {
         SelectSort b = new SelectSort();
         arr = b.selectSort(arr);
+    }
+
+    public void insertSort() {
+        InsertSort b = new InsertSort();
+        arr = b.insertSort(arr);
     }
 
 }

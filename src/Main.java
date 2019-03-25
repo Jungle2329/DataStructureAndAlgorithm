@@ -1,12 +1,14 @@
 import java.util.Random;
 
-import data_structure.array.BubArray;
+import data_structure.array.NoOrdArray;
 import data_structure.array.OrdArray;
 
 public class Main {
 
     public static void main(String[] args) {
-        test2();
+//        test2();
+//        test3();
+        test4();
     }
 
     private static void test1() {
@@ -30,13 +32,35 @@ public class Main {
     }
 
     private static void test2() {
-        BubArray arr = new BubArray(100);
-        for (int i = 0; i < 100; i++) {
+        NoOrdArray arr = new NoOrdArray(10);
+        for (int i = 0; i < 10; i++) {
             Random f = new Random();
             arr.insert(f.nextInt(10));
         }
         arr.display();
         arr.bubbleSort();
+        arr.display();
+    }
+
+    private static void test3() {
+        NoOrdArray arr = new NoOrdArray(10);
+        for (int i = 0; i < 10; i++) {
+            Random f = new Random();
+            arr.insert(f.nextInt(10));
+        }
+        arr.display();
+        arr.selectSort();
+        arr.display();
+    }
+
+    private static void test4() {
+        NoOrdArray arr = new NoOrdArray(10);
+        for (int i = 0; i < 10; i++) {
+            Random f = new Random();
+            arr.insert(f.nextInt(10));
+        }
+        arr.display();
+        arr.insertSort();
         arr.display();
     }
 }

@@ -2,13 +2,12 @@ import java.util.Random;
 
 import data_structure.array.NoOrdArray;
 import data_structure.array.OrdArray;
+import data_structure.stack.BracketChecker;
 
 public class Main {
 
     public static void main(String[] args) {
-//        test2();
-//        test3();
-        test4();
+        test5();
     }
 
     private static void test1() {
@@ -62,5 +61,11 @@ public class Main {
         arr.display();
         arr.insertSort();
         arr.display();
+    }
+
+    private static void test5() {
+        String str = "f{f[ff(f)f]f}ff";
+        BracketChecker bracketChecker = new BracketChecker(str);
+        System.out.println(bracketChecker.check());
     }
 }
